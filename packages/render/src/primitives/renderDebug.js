@@ -176,8 +176,6 @@ const debugOrigin = ctx => node => {
     ctx
       .circle(node.origin.left, node.origin.top, 3)
       .fill('red')
-      .circle(node.origin.left, node.origin.top, 5)
-      .stroke('red');
   }
 
   return node;

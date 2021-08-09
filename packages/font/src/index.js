@@ -59,6 +59,12 @@ function FontStore() {
     // We cache the font to avoid fetching it many times
     if (!f.data && !f.loading) {
       await f.load();
+
+      const fontFaceDescriptor = { style: f.fontStyle, weight: f.fontWeight }
+      const fontface = new FontFace(f.data.fullName, `url(${f.src})`, fontFaceDescriptor);
+      await fontface.load();
+
+      document.fonts.add(fontface);
     }
   };
 
